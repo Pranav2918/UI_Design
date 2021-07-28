@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:task_5/data/platform/tutorlist.dart';
+import 'package:task_5/data/tutoring/tutorlist.dart';
 import 'package:task_5/screens/tutoring/teacherdetails.dart';
-import 'package:task_5/screens/tutoring/tutoringviewL.dart';
+import 'package:task_5/screens/tutoring/tutoringview.dart';
 
 Widget inPersonTeachingCard() {
   return Container(
@@ -105,3 +105,18 @@ Widget leadingIcon(int index) {
     ),
   );
 }
+
+final List imgList = [
+  {
+    'img':
+        'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    'img':
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fHBlb3BsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    'img':
+        'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHBlb3BsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+  },
+];

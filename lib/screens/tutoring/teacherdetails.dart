@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:task_5/data/platform/tutorlist.dart';
-import 'package:task_5/screens/tutoring/tutoringviewL.dart';
+import 'package:task_5/data/tutoring/tutorlist.dart';
+import 'package:task_5/screens/tutoring/inperson.dart';
 import 'package:task_5/widgets/navbar.dart';
 
 class TeacherDetails extends StatelessWidget {
