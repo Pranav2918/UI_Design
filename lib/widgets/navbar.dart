@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:task_5/screens/lesson/homepage.dart';
 import 'package:task_5/screens/platforms/platform.dart';
+import 'package:task_5/screens/tutoring/tutoring.dart';
 
 class NavBar extends StatefulWidget {
   @override
@@ -58,9 +59,15 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             icon: Icon(Icons.book),
             text: 'Lessons',
           ),
-          Tab(
-            icon: Icon(Icons.people_alt_outlined),
-            text: 'Lessons',
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => Tutoring()));
+            },
+            child: Tab(
+              icon: Icon(Icons.people_alt_outlined),
+              text: 'Tutoring',
+            ),
           )
         ],
         onTap: _onItemTapped,
