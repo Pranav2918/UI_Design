@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task_5/screens/home/view1.dart';
-import 'package:task_5/screens/home/view2.dart';
+import 'package:task_5/screens/lesson/view1.dart';
+import 'package:task_5/screens/lesson/view2.dart';
 
 class HomePage extends StatelessWidget {
   @override

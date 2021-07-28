@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:task_5/screens/home/homepage.dart';
+import 'package:task_5/screens/lesson/homepage.dart';
 import 'package:task_5/screens/platforms/platform.dart';
 
 class NavBar extends StatefulWidget {

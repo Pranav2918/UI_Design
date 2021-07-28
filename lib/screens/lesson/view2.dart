@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:task_5/screens/home/cards.dart';
+import 'package:task_5/screens/lesson/cards.dart';
+import 'package:task_5/screens/lesson/searchbar.dart';
+
 import 'package:task_5/widgets/navbar.dart';
-import 'package:task_5/screens/home/searchbar.dart';
 
 class View2 extends StatelessWidget {
   String urlImage =
