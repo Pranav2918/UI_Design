@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-Widget popup(BuildContext context) {
+Widget popup(BuildContext context, TextEditingController controller) {
   return Container(
     height: 450,
     child: Column(
@@ -24,7 +24,7 @@ Widget popup(BuildContext context) {
             FaIcon(FontAwesomeIcons.graduationCap,
                 color: Colors.grey.shade900, size: 18)),
         SizedBox(height: 30),
-        location(),
+        location(context, controller),
         SizedBox(height: 30),
         detailRow(context, 'Tutoring Language', '',
             FaIcon(FontAwesomeIcons.globe, size: 18)),
@@ -82,15 +82,25 @@ Widget headerRow() {
       ));
 }
 
-Widget location() {
-  return Container(
-    margin: EdgeInsets.only(left: 18),
-    child: Row(
-      children: [
-        FaIcon(FontAwesomeIcons.mapMarkerAlt, size: 19),
-        SizedBox(width: 10),
-        Text('Location')
-      ],
+Widget location(BuildContext context, TextEditingController controller) {
+  return GestureDetector(
+    onTap: () {
+      showModalBottomSheet<dynamic>(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(12.0))),
+          backgroundColor: Colors.white,
+          context: context,
+          builder: (context) => locationBottomSheet(context, controller));
+    },
+    child: Container(
+      margin: EdgeInsets.only(left: 18),
+      child: Row(
+        children: [
+          FaIcon(FontAwesomeIcons.mapMarkerAlt, size: 19),
+          SizedBox(width: 10),
+          Text('Location')
+        ],
+      ),
     ),
   );
 }
@@ -100,11 +110,74 @@ Widget button(BuildContext context) {
     height: 40,
     width: MediaQuery.of(context).size.width,
     margin: EdgeInsets.only(left: 35, right: 35, top: 35),
-    decoration: BoxDecoration(
-        color: Colors.blue, borderRadius: BorderRadius.circular(28)),
+    decoration: BoxDecoration(boxShadow: [
+      BoxShadow(
+        color: Colors.grey,
+        offset: Offset(0.0, 1.0), //(x,y)
+        blurRadius: 6.0,
+      ),
+    ], color: Colors.blue, borderRadius: BorderRadius.circular(28)),
     child: Center(
       child: Text('Show results',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
     ),
   );
 }
+
+Widget locationBottomSheet(
+    BuildContext context, TextEditingController controller) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
+      height: 500,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              IconButton(
+                  onPressed: () => Navigator.pop(context),
+                  icon: Icon(Icons.arrow_back)),
+              Text('Location',
+                  style: TextStyle(
+                      color: Colors.blueGrey[900],
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18))
+            ],
+          ),
+          Container(
+            margin: EdgeInsets.only(top: 15, left: 15, right: 15),
+            decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
+            width: MediaQuery.of(context).size.width,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin: EdgeInsets.only(left: 15),
+                  width: MediaQuery.of(context).size.width / 2,
+                  child: TextField(
+                    decoration: InputDecoration(
+                        hintText: 'Search', border: InputBorder.none),
+                    autofocus: true,
+                    controller: controller,
+                  ),
+                ),
+                IconButton(
+                    onPressed: () => clearText(controller),
+                    icon: Icon(Icons.close))
+              ],
+            ),
+          )
+        ],
+      ),
+    ),
+  );
+}
+
+void clearText(TextEditingController controller) {
+  controller.clear();
+}
+
+//Small BottomSheet
+

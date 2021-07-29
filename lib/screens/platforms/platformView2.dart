@@ -15,11 +15,6 @@ class PlatformViewL extends StatelessWidget {
             Container(
               height: 300,
               width: MediaQuery.of(context).size.width,
-              // decoration: BoxDecoration(
-              //     gradient: LinearGradient(
-              //         begin: Alignment.topLeft,
-              //         end: Alignment.bottomRight,
-              //         colors: [Colors.purple, Colors.indigo])),
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: NetworkImage(urlImage), fit: BoxFit.cover)),
