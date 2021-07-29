@@ -281,7 +281,7 @@ Widget floatingButton(BuildContext context) {
             offset: Offset(0.0, 1.0), //(x,y)
             blurRadius: 6.0,
           ),
-        ], borderRadius: BorderRadius.circular(28), color: Colors.blue),
+        ], borderRadius: BorderRadius.circular(28), color: Colors.blue[700]),
         width: MediaQuery.of(context).size.width,
         height: 40,
         child: Row(

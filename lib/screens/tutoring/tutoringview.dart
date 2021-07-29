@@ -5,12 +5,13 @@ import 'package:task_5/screens/tutoring/onlineteaching.dart';
 import 'package:task_5/widgets/navbar.dart';
 import 'package:task_5/widgets/tutoringPopUp.dart';
 
-class TutoringViewL extends StatefulWidget {
+class TutoringView extends StatefulWidget {
   @override
-  _TutoringViewLState createState() => _TutoringViewLState();
+  _TutoringViewState createState() => _TutoringViewState();
 }
 
-class _TutoringViewLState extends State<TutoringViewL> {
+class _TutoringViewState extends State<TutoringView> {
+  double mainSize = 780.0;
   TextEditingController searchController = TextEditingController();
   bool selectedTab = false;
   String urlImage =
@@ -22,12 +23,17 @@ class _TutoringViewLState extends State<TutoringViewL> {
       body: SingleChildScrollView(
         child: Stack(
           children: <Widget>[
-            headerBackground(context, urlImage),
-            headerTitle(),
+            headerBackground(context, urlImage, mainSize),
+            headerTitle(context, mainSize),
             Container(
               width: MediaQuery.of(context).size.width,
               height: 100,
-              margin: EdgeInsets.only(top: 230, left: 20, right: 20),
+              margin: EdgeInsets.only(
+                  top: (MediaQuery.of(context).size.height < mainSize)
+                      ? 175
+                      : 230,
+                  left: 20,
+                  right: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -120,6 +126,7 @@ class _TutoringViewLState extends State<TutoringViewL> {
                                   topLeft: Radius.circular(12),
                                   topRight: Radius.circular(12))),
                           context: context,
+                          isScrollControlled: true,
                           builder: (context) =>
                               popup(context, searchController),
                         );
@@ -129,7 +136,9 @@ class _TutoringViewLState extends State<TutoringViewL> {
                 ],
               ),
             ),
-            selectedTab ? inPersonTeachingCard() : onlineTeachingCard()
+            selectedTab
+                ? inPersonTeachingCard(context, mainSize)
+                : onlineTeachingCard(context, mainSize)
           ],
         ),
       ),
@@ -138,18 +147,19 @@ class _TutoringViewLState extends State<TutoringViewL> {
   }
 }
 
-Widget headerBackground(BuildContext context, String img) {
+Widget headerBackground(BuildContext context, String img, double size) {
   return Container(
-    height: 250,
+    height: (MediaQuery.of(context).size.height < size) ? 200 : 250,
     width: MediaQuery.of(context).size.width,
     decoration: BoxDecoration(
         image: DecorationImage(image: NetworkImage(img), fit: BoxFit.cover)),
   );
 }
 
-Widget headerTitle() {
+Widget headerTitle(BuildContext context, double size) {
   return Container(
-    margin: EdgeInsets.only(top: 150, left: 15),
+    margin: EdgeInsets.only(
+        top: (MediaQuery.of(context).size.height < size) ? 130 : 150, left: 15),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

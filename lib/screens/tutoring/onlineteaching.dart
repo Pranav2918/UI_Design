@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:task_5/data/tutoring/onlineteacher.dart';
-import 'package:task_5/screens/tutoring/tutoringview.dart';
 
-Widget onlineTeachingCard() {
+Widget onlineTeachingCard(BuildContext context, double size) {
   return Container(
-    margin: EdgeInsets.only(top: 270, left: 15, right: 15),
+    margin: EdgeInsets.only(
+        top: (MediaQuery.of(context).size.height < size) ? 235 : 270,
+        left: 15,
+        right: 15),
     child: ListView.builder(
         shrinkWrap: true,
         primary: false,

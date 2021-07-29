@@ -3,36 +3,37 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget popup(BuildContext context, TextEditingController controller) {
   return Container(
-    height: 450,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        headerRow(),
-        SizedBox(height: 55),
-        detailRow(
-            context,
-            'Subject',
-            'All subjects',
-            FaIcon(FontAwesomeIcons.folder,
-                color: Colors.grey.shade900, size: 18)),
-        SizedBox(height: 30),
-        detailRow(
-            context,
-            'School year',
-            'All levels',
-            FaIcon(FontAwesomeIcons.graduationCap,
-                color: Colors.grey.shade900, size: 18)),
-        SizedBox(height: 30),
-        location(context, controller),
-        SizedBox(height: 30),
-        detailRow(context, 'Tutoring Language', '',
-            FaIcon(FontAwesomeIcons.globe, size: 18)),
-        SizedBox(height: 30),
-        detailRow(context, 'Price', '25.00/ 45min',
-            FaIcon(FontAwesomeIcons.euroSign, size: 18)),
-        button(context)
-      ],
+    child: SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          headerRow(),
+          SizedBox(height: 55),
+          detailRow(
+              context,
+              'Subject',
+              'All subjects',
+              FaIcon(FontAwesomeIcons.folder,
+                  color: Colors.grey.shade900, size: 18)),
+          SizedBox(height: 30),
+          detailRow(
+              context,
+              'School year',
+              'All levels',
+              FaIcon(FontAwesomeIcons.graduationCap,
+                  color: Colors.grey.shade900, size: 18)),
+          SizedBox(height: 30),
+          location(context, controller),
+          SizedBox(height: 30),
+          detailRow(context, 'Tutoring Language', '',
+              FaIcon(FontAwesomeIcons.globe, size: 18)),
+          SizedBox(height: 30),
+          detailRow(context, 'Price', '25.00/ 45min',
+              FaIcon(FontAwesomeIcons.euroSign, size: 18)),
+          button(context)
+        ],
+      ),
     ),
   );
 }
@@ -85,7 +86,8 @@ Widget headerRow() {
 Widget location(BuildContext context, TextEditingController controller) {
   return GestureDetector(
     onTap: () {
-      showModalBottomSheet<dynamic>(
+      showModalBottomSheet(
+          isScrollControlled: true,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(top: Radius.circular(12.0))),
           backgroundColor: Colors.white,
@@ -109,14 +111,14 @@ Widget button(BuildContext context) {
   return Container(
     height: 40,
     width: MediaQuery.of(context).size.width,
-    margin: EdgeInsets.only(left: 35, right: 35, top: 35),
+    margin: EdgeInsets.symmetric(vertical: 35, horizontal: 35),
     decoration: BoxDecoration(boxShadow: [
       BoxShadow(
         color: Colors.grey,
         offset: Offset(0.0, 1.0), //(x,y)
         blurRadius: 6.0,
       ),
-    ], color: Colors.blue, borderRadius: BorderRadius.circular(28)),
+    ], color: Colors.blue[700], borderRadius: BorderRadius.circular(28)),
     child: Center(
       child: Text('Show results',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
@@ -131,6 +133,7 @@ Widget locationBottomSheet(
     child: Container(
       height: 500,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
