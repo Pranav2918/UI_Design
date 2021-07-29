@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget popup(BuildContext context, TextEditingController controller) {
   return Container(
+    height: 450,
     child: SingleChildScrollView(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -65,7 +66,7 @@ Widget detailRow(
 
 Widget headerRow() {
   return Container(
-      margin: EdgeInsets.only(left: 15, right: 15, top: 35),
+      margin: EdgeInsets.only(left: 15, right: 15, top: 25),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

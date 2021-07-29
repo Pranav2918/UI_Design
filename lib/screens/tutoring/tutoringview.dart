@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:task_5/screens/tutoring/inperson.dart';
 import 'package:task_5/screens/tutoring/onlineteaching.dart';
-import 'package:task_5/widgets/navbar.dart';
 import 'package:task_5/widgets/tutoringPopUp.dart';
 
 class TutoringView extends StatefulWidget {
@@ -142,7 +141,6 @@ class _TutoringViewState extends State<TutoringView> {
           ],
         ),
       ),
-      bottomNavigationBar: NavBar(),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:task_5/screens/platforms/platformcard.dart';
-import 'package:task_5/widgets/navbar.dart';
 
 class PlatformViewL extends StatelessWidget {
   String urlImage =
@@ -81,7 +80,6 @@ class PlatformViewL extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: NavBar(),
     );
   }
 }

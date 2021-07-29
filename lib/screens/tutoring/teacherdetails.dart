@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:task_5/data/tutoring/tutorlist.dart';
 import 'package:task_5/screens/tutoring/inperson.dart';
-import 'package:task_5/widgets/navbar.dart';
 
 class TeacherDetails extends StatelessWidget {
   final int index;
@@ -13,42 +12,42 @@ class TeacherDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-          leading: IconButton(
-            icon: Icon(Icons.close, size: 25, color: Colors.black),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+        elevation: 0.0,
+        leading: IconButton(
+          icon: Icon(Icons.close, size: 25, color: Colors.black),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        body: SingleChildScrollView(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                profileImage(index),
-                titleInfo(index),
-                detailSection(context),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.only(top: 30, left: 25, right: 25),
-                  child: Text(teachers[index]['detailDesc'],
-                      style: TextStyle(fontSize: 16)),
-                ),
-                subject(index),
-                tutoringLanguage(index),
-                location(index),
-                availability(),
-                fees(index),
-                platform()
-              ]),
-        ),
-        floatingActionButton: floatingButton(context),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        bottomNavigationBar: NavBar());
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              profileImage(index),
+              titleInfo(index),
+              detailSection(context),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.only(top: 30, left: 25, right: 25),
+                child: Text(teachers[index]['detailDesc'],
+                    style: TextStyle(fontSize: 16)),
+              ),
+              subject(index),
+              tutoringLanguage(index),
+              location(index),
+              availability(),
+              fees(index),
+              platform()
+            ]),
+      ),
+      floatingActionButton: floatingButton(context),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
   }
 }
 
@@ -254,7 +253,7 @@ Widget fees(int index) {
 
 Widget platform() {
   return Container(
-    margin: EdgeInsets.only(left: 25, top: 25, bottom: 75),
+    margin: EdgeInsets.only(left: 25, top: 25, bottom: 125),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -274,7 +273,7 @@ Widget floatingButton(BuildContext context) {
   return RawMaterialButton(
     onPressed: () {},
     child: Container(
-        margin: EdgeInsets.only(left: 35, right: 35),
+        margin: EdgeInsets.only(left: 35, right: 35, bottom: 55),
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
             color: Colors.grey,
