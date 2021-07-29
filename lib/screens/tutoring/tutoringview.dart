@@ -53,7 +53,7 @@ class _TutoringViewState extends State<TutoringView> {
                         },
                         child: Container(
                           margin: EdgeInsets.only(right: 5),
-                          width: 100,
+                          width: 90,
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border(
@@ -91,7 +91,7 @@ class _TutoringViewState extends State<TutoringView> {
                           }
                         },
                         child: Container(
-                          width: 100,
+                          width: 90,
                           height: 50,
                           decoration: BoxDecoration(
                               border: Border(
@@ -132,7 +132,7 @@ class _TutoringViewState extends State<TutoringView> {
                         );
                       },
                       icon: FaIcon(FontAwesomeIcons.filter,
-                          size: 18, color: Colors.grey))
+                          size: 18, color: Colors.grey)),
                 ],
               ),
             ),
