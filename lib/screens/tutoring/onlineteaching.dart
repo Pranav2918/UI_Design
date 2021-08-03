@@ -62,7 +62,7 @@ Widget listTileSubTitle(int index) {
       ),
       SizedBox(height: 15),
       Container(
-        margin: EdgeInsets.only(left: 8, bottom: 8),
+        margin: EdgeInsets.only(left: 2, bottom: 8),
         child: Text(onlineTeachers[index]['class'],
             style: TextStyle(color: Colors.black, fontSize: 16)),
       ),

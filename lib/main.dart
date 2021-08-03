@@ -74,6 +74,10 @@ class _MainPageState extends State<MainPage> {
 class Extra extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+          child: Text('Design Come Soon',
+              style: TextStyle(color: Colors.black, fontSize: 28))),
+    );
   }
 }

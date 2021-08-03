@@ -65,13 +65,14 @@ class _TutoringViewState extends State<TutoringView> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(Icons.video_call,
-                                  color:
-                                      selectedTab ? Colors.grey : Colors.blue),
+                                  color: selectedTab
+                                      ? Colors.grey[800]
+                                      : Colors.blue),
                               SizedBox(width: 5),
                               Text('Online',
                                   style: TextStyle(
                                       color: selectedTab
-                                          ? Colors.grey
+                                          ? Colors.grey[800]
                                           : Colors.blue)),
                             ],
                           ),
@@ -103,14 +104,15 @@ class _TutoringViewState extends State<TutoringView> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(Icons.person,
-                                  color:
-                                      selectedTab ? Colors.blue : Colors.grey),
+                                  color: selectedTab
+                                      ? Colors.blue
+                                      : Colors.grey[800]),
                               SizedBox(width: 5),
                               Text('In Person',
                                   style: TextStyle(
                                       color: selectedTab
                                           ? Colors.blue
-                                          : Colors.grey)),
+                                          : Colors.grey[800])),
                             ],
                           ),
                         ),
@@ -131,7 +133,7 @@ class _TutoringViewState extends State<TutoringView> {
                         );
                       },
                       icon: FaIcon(FontAwesomeIcons.filter,
-                          size: 18, color: Colors.grey)),
+                          size: 18, color: Colors.grey[800])),
                 ],
               ),
             ),

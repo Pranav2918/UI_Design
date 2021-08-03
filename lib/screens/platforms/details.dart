@@ -50,7 +50,7 @@ class Details extends StatelessWidget {
                     Positioned(
                       top: MediaQuery.of(context).size.height < mainSize
                           ? 180
-                          : 170,
+                          : 190,
                       left: 15,
                       child: Container(
                         child: platformCard[index].logo,

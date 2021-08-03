@@ -4,7 +4,7 @@ A new Flutter project.
 
 ### Screenshots
 
-<img src="Home.png" height="500em" /> <img src="platform.png" height="500em" />
-<img src="tutoring1.png" height="500em" /> <img src="tutoring2.png" height="500em" />
-<img src="profile.png" height="500em" /> <img src="profile2.png" height="500em" />
-<img src="filter.png" height="500em" />
+<img src="screenshots/Home.png" height="500em" /> <img src="screenshots/platform.png" height="500em" />
+<img src="screenshots/tutoring1.png" height="500em" /> <img src="screenshots/tutoring2.png" height="500em" />
+<img src="screenshots/profile.png" height="500em" /> <img src="screenshots/profile2.png" height="500em" />
+<img src="screenshots/filter.png" height="500em" />

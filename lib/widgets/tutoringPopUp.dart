@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:task_5/data/tutoring/tutorlist.dart';
+import 'package:task_5/widgets/searchlocation.dart';
 
 Widget popup(BuildContext context, TextEditingController controller) {
   return Container(
@@ -147,83 +148,29 @@ class _LocationBottomsheetState extends State<LocationBottomsheet> {
       padding: const EdgeInsets.all(8.0),
       child: Container(
         height: 500,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: Icon(Icons.arrow_back)),
-                Text('Location',
-                    style: TextStyle(
-                        color: Colors.blueGrey[900],
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18))
-              ],
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 15, left: 15, right: 15),
-              decoration: BoxDecoration(border: Border.all(color: Colors.blue)),
-              width: MediaQuery.of(context).size.width,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    margin: EdgeInsets.only(left: 15),
-                    width: MediaQuery.of(context).size.width / 2,
-                    child: TextField(
-                      decoration: InputDecoration(
-                          hintText: 'Search', border: InputBorder.none),
-                      autofocus: true,
-                      controller: controller,
-                      onChanged: (val) {
-                        setState(() {
-                          text = val;
-                        });
-
-                        // print(text);
-                      },
-                    ),
-                  ),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                children: <Widget>[
                   IconButton(
-                      onPressed: () => clearText(controller),
-                      icon: Icon(Icons.close))
+                      onPressed: () => Navigator.pop(context),
+                      icon: Icon(Icons.arrow_back)),
+                  Text('Location',
+                      style: TextStyle(
+                          color: Colors.blueGrey[900],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18))
                 ],
               ),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              primary: false,
-              itemCount: 1,
-              itemBuilder: (context, index) {
-                return ListTile(
-                    onTap: () {
-                      controller.text = text!;
-                    },
-                    title: Text((text = controller.text.startsWith('c')
-                        ? teachers[0]['location']
-                        : text = controller.text.startsWith('u')
-                            ? teachers[1]['location']
-                            : text = controller.text.startsWith('g')
-                                ? teachers[2]['location']
-                                : '')));
-              },
-            ),
-          ],
+              SearchLocation()
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
-
-// (text == 'canada'
-//                         ? teachers[0]['location']
-//                         : text == 'usa'
-//                             ? teachers[1]['location']
-//                             : text == 'germany'
-//                                 ? teachers[2]['location']
-//                                 : '')
