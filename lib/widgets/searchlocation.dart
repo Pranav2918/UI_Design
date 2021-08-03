@@ -1,5 +1,5 @@
+import 'package:autocomplete_textfield/autocomplete_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
 
 class SearchLocation extends StatefulWidget {
   @override
@@ -16,6 +16,7 @@ class _SearchLocationState extends State<SearchLocation> {
     'India',
     'Indonesia',
     'Japan',
+    'Russia',
     'Jamaica',
     'USA',
     'UK',
@@ -27,7 +28,10 @@ class _SearchLocationState extends State<SearchLocation> {
     'South Africa',
     'Georgia',
     'Nepal',
-    'China'
+    'China',
+    'Shrilanka',
+    'Canada',
+    'Russia'
   ];
 
   final TextEditingController _textEditingController = TextEditingController();
@@ -44,34 +48,41 @@ class _SearchLocationState extends State<SearchLocation> {
           Container(
             width: 150,
             child: Padding(
-              padding: const EdgeInsets.only(left: 8.0),
-              child: TypeAheadField(
-                suggestionsCallback: (pattern) => location_list.where((item) =>
-                    item.toLowerCase().contains(pattern.toLowerCase())),
-                itemBuilder: (_, String item) => ListTile(title: Text(item)),
-                onSuggestionSelected: (String val) {
-                  this._textEditingController.text = val;
-                  print(val);
-                },
-                getImmediateSuggestions: true,
-                hideSuggestionsOnKeyboardHide: true,
-                hideOnEmpty: false,
-                noItemsFoundBuilder: (context) => Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text('No Location Found')),
-                textFieldConfiguration: TextFieldConfiguration(
-                    decoration: InputDecoration(
-                        hintText: 'Search', border: InputBorder.none),
-                    controller: _textEditingController),
-              ),
-            ),
+                padding: const EdgeInsets.only(left: 8.0),
+                child: AutoCompleteTextField(
+                  controller: _textEditingController,
+                  suggestions: location_list,
+                  decoration: InputDecoration(
+                      border: InputBorder.none, hintText: 'Search'),
+                  itemFilter: (item, query) {
+                    return item
+                        .toString()
+                        .toLowerCase()
+                        .startsWith(query.toLowerCase());
+                  },
+                  itemSorter: (a, b) {
+                    return a.toString().compareTo(b.toString());
+                  },
+                  itemSubmitted: (item) {
+                    _textEditingController.text = item.toString();
+                  },
+                  itemBuilder: (context, suggestion) {
+                    return Container(
+                      padding: EdgeInsets.all(18.0),
+                      child: Text(suggestion.toString(),
+                          style: TextStyle(color: Colors.black)),
+                    );
+                  },
+                  submitOnSuggestionTap: true,
+                  clearOnSubmit: false,
+                  style: TextStyle(color: Colors.black, fontSize: 16.0),
+                  key: null,
+                )),
           ),
           IconButton(
             icon: Icon(Icons.close, size: 25),
             onPressed: () {
-              setState(() {
-                _textEditingController.clear();
-              });
+              _textEditingController.clear();
             },
           ),
         ],
