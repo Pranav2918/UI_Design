@@ -9,13 +9,15 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  autocomplete_textfield: ^1.7.3
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  flutter_screenutil: ^5.0.0+2
+  flutter_typeahead: ^3.2.0
   font_awesome_flutter: ^9.1.0
   share: ^2.0.4
   url_launcher: ^6.0.9
-  autocomplete_textfield: ^1.7.3
 
 dev_dependencies:
   flutter_test:

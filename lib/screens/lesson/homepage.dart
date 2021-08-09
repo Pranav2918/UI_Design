@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_5/screens/lesson/view1.dart';
 import 'package:task_5/screens/lesson/view2.dart';
 

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:task_5/screens/lesson/homepage.dart';
 import 'package:task_5/screens/tutoring/tutoring.dart';
@@ -13,13 +14,16 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ScreenUtilInit(
+      designSize: const Size(412, 846),
+      builder: () => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MainPage(),
       ),
-      home: MainPage(),
     );
   }
 }
@@ -77,7 +81,7 @@ class Extra extends StatelessWidget {
     return Scaffold(
       body: Center(
           child: Text('Design Come Soon',
-              style: TextStyle(color: Colors.black, fontSize: 28))),
+              style: TextStyle(color: Colors.black, fontSize: 28.sp))),
     );
   }
 }
