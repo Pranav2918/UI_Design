@@ -9,7 +9,7 @@ class PlatformCard extends StatefulWidget {
 }
 
 class _PlatformCardState extends State<PlatformCard> {
-  final double size = 780;
+  final double size = 400;
   List<CardInfo> platformCard = Platforms.getDetails();
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class _PlatformCardState extends State<PlatformCard> {
           mainAxisSpacing: 10,
           crossAxisCount: 1,
           childAspectRatio:
-              MediaQuery.of(context).size.height < size ? 1.5 : 1.7),
+              MediaQuery.of(context).size.width < size ? 1.4 : 1.7),
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {

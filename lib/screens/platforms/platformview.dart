@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:task_5/screens/platforms/platformcard.dart';
 
-class PlatformViewL extends StatelessWidget {
+class PlatformView extends StatelessWidget {
   String urlImage =
       "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z2FsYXh5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
+  double finalWidth = 400.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,7 +13,8 @@ class PlatformViewL extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              height: 300,
+              height:
+                  MediaQuery.of(context).size.width < finalWidth ? 180 : 300,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   image: DecorationImage(
@@ -53,7 +55,11 @@ class PlatformViewL extends StatelessWidget {
               ),
             ),
             Container(
-                margin: EdgeInsets.only(top: 185, left: 15),
+                margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.width < finalWidth
+                        ? 90
+                        : 185,
+                    left: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -70,7 +76,12 @@ class PlatformViewL extends StatelessWidget {
             Container(
               decoration:
                   BoxDecoration(borderRadius: BorderRadius.circular(12)),
-              margin: EdgeInsets.only(top: 270, left: 25, right: 25),
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.width < finalWidth
+                      ? 170
+                      : 270,
+                  left: 25,
+                  right: 25),
               child: Column(
                 children: [
                   PlatformCard(),

@@ -3,8 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:task_5/screens/lesson/sheetcards.dart';
 import 'package:task_5/screens/lesson/sheetheader.dart';
 
+// ignore: must_be_immutable
 class Cards extends StatelessWidget {
-  double finalHeight = 780;
+  double finalWidth = 400;
   final List<Map> cardList = [
     {
       'name': 'Mathematik',
@@ -36,7 +37,7 @@ class Cards extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         margin: EdgeInsets.only(
-            top: MediaQuery.of(context).size.height < finalHeight ? 230 : 330,
+            top: MediaQuery.of(context).size.width < finalWidth ? 220 : 330,
             left: 15,
             right: 15),
         child: Column(

@@ -6,7 +6,7 @@ import 'package:task_5/screens/tutoring/teacherdetails.dart';
 Widget inPersonTeachingCard(BuildContext context, double size) {
   return Container(
     margin: EdgeInsets.only(
-        top: (MediaQuery.of(context).size.height < size) ? 235 : 270,
+        top: (MediaQuery.of(context).size.width <= size) ? 255 : 270,
         left: 15,
         right: 15),
     child: ListView.builder(

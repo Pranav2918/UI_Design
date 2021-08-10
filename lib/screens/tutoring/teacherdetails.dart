@@ -5,7 +5,6 @@ import 'package:task_5/screens/tutoring/inperson.dart';
 
 class TeacherDetails extends StatelessWidget {
   final int index;
-  num mainSize = 780.0;
   TeacherDetails({
     required this.index,
   });
@@ -127,7 +126,7 @@ Widget detailSection(BuildContext context) {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             FaIcon(FontAwesomeIcons.language, size: 19),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             Text('English', style: TextStyle(fontSize: 14))
           ],
         ),

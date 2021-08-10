@@ -10,7 +10,7 @@ class TutoringView extends StatefulWidget {
 }
 
 class _TutoringViewState extends State<TutoringView> {
-  double mainSize = 780.0;
+  double mainSize = 400;
   TextEditingController searchController = TextEditingController();
   bool selectedTab = false;
   String urlImage =
@@ -28,11 +28,10 @@ class _TutoringViewState extends State<TutoringView> {
               width: MediaQuery.of(context).size.width,
               height: 100,
               margin: EdgeInsets.only(
-                  top: (MediaQuery.of(context).size.height < mainSize)
-                      ? 175
-                      : 230,
-                  left: 20,
-                  right: 20),
+                top: MediaQuery.of(context).size.width < mainSize ? 180 : 225,
+                left: 20,
+                right: 20,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -149,7 +148,7 @@ class _TutoringViewState extends State<TutoringView> {
 
 Widget headerBackground(BuildContext context, String img, double size) {
   return Container(
-    height: (MediaQuery.of(context).size.height < size) ? 200 : 250,
+    height: (MediaQuery.of(context).size.width < size) ? 200 : 250,
     width: MediaQuery.of(context).size.width,
     decoration: BoxDecoration(
         image: DecorationImage(image: NetworkImage(img), fit: BoxFit.cover)),
@@ -159,7 +158,7 @@ Widget headerBackground(BuildContext context, String img, double size) {
 Widget headerTitle(BuildContext context, double size) {
   return Container(
     margin: EdgeInsets.only(
-        top: (MediaQuery.of(context).size.height < size) ? 130 : 150, left: 15),
+        top: (MediaQuery.of(context).size.width < size) ? 100 : 150, left: 15),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

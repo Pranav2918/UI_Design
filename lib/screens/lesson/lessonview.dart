@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:task_5/screens/lesson/cards.dart';
 import 'package:task_5/screens/lesson/searchbar.dart';
 
-class View2 extends StatelessWidget {
+class LessonView extends StatelessWidget {
   String urlImage =
       "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z2FsYXh5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
+  double finalWidth = 400.0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(244, 244, 244, 0.9),
       body: Stack(children: <Widget>[
         Container(
-          height: 300,
+          height: MediaQuery.of(context).size.width < finalWidth ? 180 : 300,
           width: MediaQuery.of(context).size.width,
           // decoration: BoxDecoration(
           //     gradient: LinearGradient(
@@ -57,7 +58,9 @@ class View2 extends StatelessWidget {
           ),
         ),
         Container(
-            margin: EdgeInsets.only(top: 185, left: 15),
+            margin: EdgeInsets.only(
+                top: MediaQuery.of(context).size.width < finalWidth ? 90 : 185,
+                left: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -71,14 +74,18 @@ class View2 extends StatelessWidget {
                 ),
               ],
             )),
-        Cards(),
         Container(
-            margin: EdgeInsets.only(left: 15, right: 15, top: 260),
+            margin: EdgeInsets.only(
+              left: 15,
+              right: 15,
+              top: MediaQuery.of(context).size.width < finalWidth ? 160 : 260,
+            ),
             width: MediaQuery.of(context).size.width,
             height: 60,
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(28)),
             child: searchBar(context)),
+        Cards(),
       ]),
     );
   }

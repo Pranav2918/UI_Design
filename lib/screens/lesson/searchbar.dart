@@ -17,7 +17,7 @@ Widget searchBar(context) {
         ),
         Expanded(
           child: Container(
-            margin: EdgeInsets.only(left: 10,top: 13),
+            margin: EdgeInsets.only(left: 10,top: 6),
             child: TextField(
               decoration: InputDecoration(
                   hintText: "Search for terms like 'Geometry'",

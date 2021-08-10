@@ -7,7 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 class Details extends StatelessWidget {
-  double mainSize = 780;
+  double mainSize = 400;
   String urlImage =
       "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z2FsYXh5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60";
   List<CardInfo> platformCard = Platforms.getDetails();
@@ -48,25 +48,24 @@ class Details extends StatelessWidget {
                       ),
                     ),
                     Positioned(
-                      top: MediaQuery.of(context).size.height < mainSize
-                          ? 180
-                          : 190,
+                      top: MediaQuery.of(context).size.width <= mainSize
+                          ? 99
+                          : 150,
                       left: 15,
                       child: Container(
                         child: platformCard[index].logo,
-                        height: MediaQuery.of(context).size.height < mainSize
+                        height: MediaQuery.of(context).size.width < mainSize
                             ? 50
                             : 60,
-                        width: MediaQuery.of(context).size.height < mainSize
+                        width: MediaQuery.of(context).size.width < mainSize
                             ? 50
                             : 60,
                       ),
                     )
                   ],
                 )),
-                expandedHeight: mainSize < MediaQuery.of(context).size.height
-                    ? MediaQuery.of(context).size.height * 0.250
-                    : MediaQuery.of(context).size.height * 0.340,
+                expandedHeight:
+                    mainSize < MediaQuery.of(context).size.width ? 160 : 150,
               ),
               SliverList(
                   delegate: SliverChildListDelegate([
@@ -181,6 +180,9 @@ class Details extends StatelessWidget {
                                         'assets/images/appstore.png'),
                                     fit: BoxFit.contain)))
                       ],
+                    ),
+                    SizedBox(
+                      height: 35,
                     )
                   ],
                 )
