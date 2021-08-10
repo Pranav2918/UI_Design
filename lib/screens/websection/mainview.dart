@@ -9,7 +9,6 @@ class MainScreenView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: ScreenUtilInit(
-            designSize: Size(670, 816), builder: () => LessonSView()));
+            designSize: Size(768, 1024), builder: () => LessonSView()));
   }
 }
-
