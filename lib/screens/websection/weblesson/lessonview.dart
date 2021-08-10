@@ -27,7 +27,8 @@ class LessonSView extends StatelessWidget {
                 ),
               ),
             ),
-            headingTitle('Lessons', 'Search for learning material'),
+            headingTitle(
+                'Lessons', 'Search for learning material', context, mainSize),
             SizedBox(height: 50.h),
             searchBar(context),
             SizedBox(height: 25.h),
@@ -126,14 +127,25 @@ class LessonSView extends StatelessWidget {
   }
 }
 
-Widget headingTitle(String title, String subtitle) {
+Widget headingTitle(String title, String subtitle, context, double size) {
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
       Text(title,
-          style: TextStyle(color: Colors.blueGrey[900], fontSize: 30.sp)),
+          style: TextStyle(
+              color: Colors.blueGrey[900],
+              fontSize: MediaQuery.of(context).size.width > size &&
+                      MediaQuery.of(context).size.width <= 1200
+                  ? 30
+                  : 40)),
       SizedBox(height: 10.h),
-      Text(subtitle, style: TextStyle(color: Colors.grey, fontSize: 18.sp))
+      Text(subtitle,
+          style: TextStyle(
+              color: Colors.grey,
+              fontSize: MediaQuery.of(context).size.width > size &&
+                      MediaQuery.of(context).size.width <= 1200
+                  ? 18
+                  : 28))
     ],
   );
 }
