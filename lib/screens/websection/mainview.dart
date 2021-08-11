@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:task_5/screens/lesson/lessonview.dart';
-import 'package:task_5/screens/tutoring/tutoring.dart';
 import 'package:task_5/screens/websection/weblesson/lessonview.dart';
-import 'package:task_5/screens/websection/weblesson/sidebar.dart';
+import 'package:task_5/screens/websection/weblesson/subjectdetails.dart';
 import 'package:task_5/screens/websection/weblesson/tempClasses.dart';
 
 class MainScreenView extends StatefulWidget {
@@ -53,21 +51,7 @@ class _MainScreenViewState extends State<MainScreenView> {
                         children: [
                           Column(
                             children: [
-                              Container(
-                                margin: EdgeInsets.symmetric(vertical: 30.h),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(Icons.book,
-                                        color: Colors.white, size: 20.sp),
-                                    SizedBox(width: 5.w),
-                                    Text('Learniverse',
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 22.sp)),
-                                  ],
-                                ),
-                              ),
+                              logoHeader(context, mainSize),
                               InkWell(
                                   onTap: () {
                                     setState(() {
@@ -86,7 +70,7 @@ class _MainScreenViewState extends State<MainScreenView> {
                                     });
                                   },
                                   child: demoButton(isLessonHovered, 'Lesson',
-                                      context, mainSize)),
+                                      context, mainSize, isLesson)),
                               InkWell(
                                   onTap: () {
                                     setState(() {
@@ -103,8 +87,12 @@ class _MainScreenViewState extends State<MainScreenView> {
                                       isPlatformHovered = val;
                                     });
                                   },
-                                  child: demoButton(isPlatformHovered,
-                                      'Platform', context, mainSize)),
+                                  child: demoButton(
+                                      isPlatformHovered,
+                                      'Platform',
+                                      context,
+                                      mainSize,
+                                      isPlatform)),
                               InkWell(
                                   onTap: () {
                                     setState(() {
@@ -120,8 +108,8 @@ class _MainScreenViewState extends State<MainScreenView> {
                                       isNavHovered = val;
                                     });
                                   },
-                                  child: demoButton(
-                                      isNavHovered, 'Nav', context, mainSize)),
+                                  child: demoButton(isNavHovered, 'Nav',
+                                      context, mainSize, isNav)),
                               InkWell(
                                   onTap: () {
                                     setState(() {
@@ -138,8 +126,12 @@ class _MainScreenViewState extends State<MainScreenView> {
                                       isTutoringHovered = val;
                                     });
                                   },
-                                  child: demoButton(isTutoringHovered,
-                                      'Tutoring', context, mainSize)),
+                                  child: demoButton(
+                                      isTutoringHovered,
+                                      'Tutoring',
+                                      context,
+                                      mainSize,
+                                      isTutoring)),
                             ],
                           ),
                           Align(
@@ -187,7 +179,9 @@ class _MainScreenViewState extends State<MainScreenView> {
   }
 }
 
-Widget demoButton(bool val, String text, BuildContext context, double size) {
+Widget demoButton(
+    bool val, String text, BuildContext context, double size, bool selected) {
+  //For Hovering
   return Container(
     margin: EdgeInsets.only(top: 10),
     height: 40.h,
@@ -201,7 +195,10 @@ Widget demoButton(bool val, String text, BuildContext context, double size) {
     decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(28),
         color: val ? Colors.indigoAccent : Colors.transparent),
+
+    //For Selecting
     child: Container(
+      height: 40.h,
       width: MediaQuery.of(context).size.width >= size &&
               MediaQuery.of(context).size.width <= 1200
           ? 110
@@ -209,15 +206,49 @@ Widget demoButton(bool val, String text, BuildContext context, double size) {
                   MediaQuery.of(context).size.width <= 1450
               ? 110
               : 110,
+      decoration: BoxDecoration(
+        color: selected ? Colors.indigoAccent : Colors.transparent,
+        borderRadius: BorderRadius.circular(28),
+      ),
       child: Row(
         children: [
           SizedBox(width: 3.w),
-          Icon(Icons.window_sharp,
-              color: val ? Colors.white : Colors.grey, size: 15),
+          Icon(Icons.window_sharp, color: Colors.white, size: 15),
           SizedBox(width: 5.w),
-          Text(text, style: TextStyle(color: val ? Colors.white : Colors.grey)),
+          Text(text, style: TextStyle(color: Colors.white)),
         ],
       ),
+    ),
+  );
+}
+
+Widget logoHeader(BuildContext context, double size) {
+  return Container(
+    margin: EdgeInsets.symmetric(vertical: 30.h),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(Icons.book,
+            color: Colors.white,
+            size: MediaQuery.of(context).size.width >= size &&
+                    MediaQuery.of(context).size.width <= 1200
+                ? 15
+                : MediaQuery.of(context).size.width >= 1201 &&
+                        MediaQuery.of(context).size.width <= 1450
+                    ? 25
+                    : 25),
+        SizedBox(width: 5.w),
+        Text('Learniverse',
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: MediaQuery.of(context).size.width >= size &&
+                        MediaQuery.of(context).size.width <= 1200
+                    ? 18
+                    : MediaQuery.of(context).size.width >= 1201 &&
+                            MediaQuery.of(context).size.width <= 1450
+                        ? 20
+                        : 25)),
+      ],
     ),
   );
 }

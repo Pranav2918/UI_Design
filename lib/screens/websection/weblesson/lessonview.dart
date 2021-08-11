@@ -41,9 +41,7 @@ class LessonSView extends StatelessWidget {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => SubjectDetailWeb(),
-                          ));
+                          Navigator.pushNamed(context, '/mathematik');
                         },
                         child: subjects(
                             Icon(Icons.calculate,
@@ -129,15 +127,7 @@ class LessonSView extends StatelessWidget {
                                 ? 18
                                 : 24,
                             fontWeight: FontWeight.w700))),
-            SubjectCard()
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
-
-//
+                SubjectCard()
               ],
             )));
   }
@@ -151,27 +141,23 @@ class LessonSView extends StatelessWidget {
         borderRadius: BorderRadius.circular(28.r),
         color: Colors.white,
       ),
-      child: Stack(
-        children: [
-          TextFormField(
-            decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(left: 10.w, bottom: 10.h),
-                border: InputBorder.none,
-                hintText: 'Search over million lessons'),
-          ),
-          Align(
-              alignment: Alignment.centerRight,
-              child: Container(
-                  height: 45.h,
-                  width: 45.w,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.blue[700],
-                  ),
-                  child: Center(
-                    child: Icon(Icons.search, color: Colors.white, size: 22.sp),
-                  )))
-        ],
+      child: TextFormField(
+        decoration: InputDecoration(
+            suffixIcon: Container(
+              height: 45.h,
+              width: 45.h,
+              decoration: BoxDecoration(
+                  color: Colors.blue[700], shape: BoxShape.circle),
+              child: Center(
+                child: Icon(
+                  Icons.search,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            contentPadding: EdgeInsets.only(left: 10.w, bottom: 10.h),
+            border: InputBorder.none,
+            hintText: 'Search over million lessons'),
       ),
     );
   }
