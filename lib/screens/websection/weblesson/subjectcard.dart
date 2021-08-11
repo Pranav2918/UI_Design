@@ -14,7 +14,13 @@ class SubjectCard extends StatelessWidget {
         itemCount: popularTopics.length,
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 1.0,
+            childAspectRatio: MediaQuery.of(context).size.width >= size &&
+                    MediaQuery.of(context).size.width <= 1200
+                ? 0.70
+                : MediaQuery.of(context).size.width >= 1201 &&
+                        MediaQuery.of(context).size.width <= 1450
+                    ? 0.9
+                    : 1.2,
             crossAxisCount: 4,
             mainAxisSpacing: 10.h,
             crossAxisSpacing: 10.w),
@@ -36,7 +42,7 @@ class SubjectCard extends StatelessWidget {
                                     MediaQuery.of(context).size.width > size &&
                                             MediaQuery.of(context).size.width <=
                                                 1200
-                                        ? 28
+                                        ? 22
                                         : 66,
                                 letterSpacing: 1.0.sp)),
                       ),
