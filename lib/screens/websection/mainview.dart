@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_5/screens/websection/weblesson/lessonview.dart';
-import 'package:task_5/screens/websection/weblesson/subjectdetails.dart';
 import 'package:task_5/screens/websection/weblesson/tempClasses.dart';
 
 class MainScreenView extends StatefulWidget {
@@ -20,7 +19,7 @@ class _MainScreenViewState extends State<MainScreenView> {
   double mainSize = 760;
 
   //Navigation Bool
-  bool isLesson = false;
+  bool isLesson = true;
   bool isPlatform = false;
   bool isNav = false;
   bool isTutoring = false;
@@ -60,9 +59,6 @@ class _MainScreenViewState extends State<MainScreenView> {
                                       isTutoring = false;
                                       isPlatform = false;
                                     });
-
-                                    print('Lesson Clicked ' +
-                                        isLesson.toString());
                                   },
                                   onHover: (val) {
                                     setState(() {
@@ -79,8 +75,6 @@ class _MainScreenViewState extends State<MainScreenView> {
                                       isLesson = false;
                                       isTutoring = false;
                                     });
-                                    print('Platform Clicked ' +
-                                        isPlatform.toString());
                                   },
                                   onHover: (val) {
                                     setState(() {
@@ -101,7 +95,6 @@ class _MainScreenViewState extends State<MainScreenView> {
                                       isTutoring = false;
                                       isLesson = false;
                                     });
-                                    print('Nav Clicked ' + isNav.toString());
                                   },
                                   onHover: (val) {
                                     setState(() {
@@ -118,8 +111,6 @@ class _MainScreenViewState extends State<MainScreenView> {
                                       isPlatform = false;
                                       isLesson = false;
                                     });
-                                    print('Tutoring Clicked ' +
-                                        isTutoring.toString());
                                   },
                                   onHover: (val) {
                                     setState(() {

@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:task_5/screens/lesson/homepage.dart';
 import 'package:task_5/screens/tutoring/tutoring.dart';
 import 'package:task_5/screens/websection/mainview.dart';
-import 'package:task_5/screens/websection/weblesson/lessonview.dart';
 import 'package:task_5/screens/websection/weblesson/subjectdetails.dart';
 
 import 'screens/platforms/platform.dart';
