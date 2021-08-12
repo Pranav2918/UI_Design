@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(accentColor: Colors.blue),
         routes: {
           '/': (BuildContext context) => MainPage(),
+          '/mainpage': (BuildContext context) => MainScreenView(),
           '/lesson': (BuildContext context) => MainScreenView(),
           '/mathematik': (BuildContext context) => SubjectDetailWeb()
         },
