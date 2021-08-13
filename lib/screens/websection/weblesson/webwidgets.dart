@@ -30,7 +30,7 @@ Widget subjects(Icon icon, String name, context, double size) {
       margin: EdgeInsets.symmetric(
           horizontal: MediaQuery.of(context).size.width >= size &&
                   MediaQuery.of(context).size.width <= 1200
-              ? 10
+              ? 15
               : MediaQuery.of(context).size.width >= 1201 &&
                       MediaQuery.of(context).size.width <= 1450
                   ? 35
@@ -57,8 +57,8 @@ Widget subjects(Icon icon, String name, context, double size) {
 Widget searchBar(BuildContext context) {
   return Container(
     margin: EdgeInsets.only(left: 25.w, right: 25.w),
-    height: 45.h,
-    width: 700.w,
+    height: 40,
+    width: MediaQuery.of(context).size.width / 1.45,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(28.r),
       color: Colors.white,
@@ -66,8 +66,8 @@ Widget searchBar(BuildContext context) {
     child: TextFormField(
       decoration: InputDecoration(
           suffixIcon: Container(
-            height: 45.h,
-            width: 45.h,
+            height: 40,
+            width: 40,
             decoration:
                 BoxDecoration(color: Colors.blue[700], shape: BoxShape.circle),
             child: Center(
@@ -77,7 +77,7 @@ Widget searchBar(BuildContext context) {
               ),
             ),
           ),
-          contentPadding: EdgeInsets.only(left: 10.w, bottom: 10.h),
+          contentPadding: EdgeInsets.only(left: 10, top: 10),
           border: InputBorder.none,
           hintText: 'Search over million lessons'),
     ),
@@ -132,31 +132,9 @@ Widget demoButton(
 //Sidebar Logo
 Widget logoHeader(BuildContext context, double size) {
   return Container(
-    margin: EdgeInsets.symmetric(vertical: 30.h),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(Icons.book,
-            color: Colors.white,
-            size: MediaQuery.of(context).size.width >= size &&
-                    MediaQuery.of(context).size.width <= 1200
-                ? 15
-                : MediaQuery.of(context).size.width >= 1201 &&
-                        MediaQuery.of(context).size.width <= 1450
-                    ? 25
-                    : 25),
-        SizedBox(width: 5.w),
-        Text('Learniverse',
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: MediaQuery.of(context).size.width >= size &&
-                        MediaQuery.of(context).size.width <= 1200
-                    ? 18
-                    : MediaQuery.of(context).size.width >= 1201 &&
-                            MediaQuery.of(context).size.width <= 1450
-                        ? 20
-                        : 25)),
-      ],
-    ),
-  );
+      height: 100,
+      width: 200,
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/sidebarlogo.png'))));
 }
