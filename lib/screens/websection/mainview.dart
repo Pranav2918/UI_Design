@@ -32,137 +32,133 @@ class _MainScreenViewState extends State<MainScreenView> {
               return Container(
                   child: Row(
                 children: [
-                  Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width >= mainSize &&
-                            MediaQuery.of(context).size.width <= 1200
-                        ? 180
-                        : MediaQuery.of(context).size.width >= 1201 &&
-                                MediaQuery.of(context).size.width <= 1450
-                            ? 210
-                            : 230,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage(imgUrl), fit: BoxFit.cover)),
+                  Expanded(
                     child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            children: [
-                              logoHeader(context, mainSize),
-                              InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      isLesson = true;
-                                      isNav = false;
-                                      isTutoring = false;
-                                      isPlatform = false;
-                                    });
-                                  },
-                                  onHover: (val) {
-                                    setState(() {
-                                      isLessonHovered = val;
-                                    });
-                                  },
-                                  child: demoButton(isLessonHovered, 'Lesson',
-                                      context, mainSize, isLesson)),
-                              InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      isPlatform = true;
-                                      isNav = false;
-                                      isLesson = false;
-                                      isTutoring = false;
-                                    });
-                                  },
-                                  onHover: (val) {
-                                    setState(() {
-                                      isPlatformHovered = val;
-                                    });
-                                  },
-                                  child: demoButton(
-                                      isPlatformHovered,
-                                      'Platform',
-                                      context,
-                                      mainSize,
-                                      isPlatform)),
-                              InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      isNav = true;
-                                      isPlatform = false;
-                                      isTutoring = false;
-                                      isLesson = false;
-                                    });
-                                  },
-                                  onHover: (val) {
-                                    setState(() {
-                                      isNavHovered = val;
-                                    });
-                                  },
-                                  child: demoButton(isNavHovered, 'Nav',
-                                      context, mainSize, isNav)),
-                              InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      isTutoring = true;
-                                      isNav = false;
-                                      isPlatform = false;
-                                      isLesson = false;
-                                    });
-                                  },
-                                  onHover: (val) {
-                                    setState(() {
-                                      isTutoringHovered = val;
-                                    });
-                                  },
-                                  child: demoButton(
-                                      isTutoringHovered,
-                                      'Tutoring',
-                                      context,
-                                      mainSize,
-                                      isTutoring)),
-                            ],
-                          ),
-                          Align(
-                            alignment: Alignment.bottomLeft,
-                            child: Container(
-                                margin: EdgeInsets.only(bottom: 25.h),
-                                height: 45.h,
-                                width: 45.w,
-                                child: Center(
-                                  child: Icon(Icons.question_answer_outlined,
-                                      color: Colors.white, size: 18.sp),
-                                ),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  border: Border.all(color: Colors.grey),
-                                )),
-                          )
-                        ],
+                      height: MediaQuery.of(context).size.height,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(imgUrl), fit: BoxFit.cover)),
+                      child: Container(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [
+                                logoHeader(context, mainSize),
+                                InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isLesson = true;
+                                        isNav = false;
+                                        isTutoring = false;
+                                        isPlatform = false;
+                                      });
+                                    },
+                                    onHover: (val) {
+                                      setState(() {
+                                        isLessonHovered = val;
+                                      });
+                                    },
+                                    child: demoButton(isLessonHovered, 'Lesson',
+                                        context, mainSize, isLesson)),
+                                InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isPlatform = true;
+                                        isNav = false;
+                                        isLesson = false;
+                                        isTutoring = false;
+                                      });
+                                    },
+                                    onHover: (val) {
+                                      setState(() {
+                                        isPlatformHovered = val;
+                                      });
+                                    },
+                                    child: demoButton(
+                                        isPlatformHovered,
+                                        'Platform',
+                                        context,
+                                        mainSize,
+                                        isPlatform)),
+                                InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isNav = true;
+                                        isPlatform = false;
+                                        isTutoring = false;
+                                        isLesson = false;
+                                      });
+                                    },
+                                    onHover: (val) {
+                                      setState(() {
+                                        isNavHovered = val;
+                                      });
+                                    },
+                                    child: demoButton(isNavHovered, 'Nav',
+                                        context, mainSize, isNav)),
+                                InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        isTutoring = true;
+                                        isNav = false;
+                                        isPlatform = false;
+                                        isLesson = false;
+                                      });
+                                    },
+                                    onHover: (val) {
+                                      setState(() {
+                                        isTutoringHovered = val;
+                                      });
+                                    },
+                                    child: demoButton(
+                                        isTutoringHovered,
+                                        'Tutoring',
+                                        context,
+                                        mainSize,
+                                        isTutoring)),
+                              ],
+                            ),
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Container(
+                                  margin: EdgeInsets.only(bottom: 25.h),
+                                  height: 45.h,
+                                  width: 45.w,
+                                  child: Center(
+                                    child: Icon(Icons.question_answer_outlined,
+                                        color: Colors.white, size: 18.sp),
+                                  ),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(color: Colors.grey),
+                                  )),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                  Container(
-                    height: MediaQuery.of(context).size.height,
-                    width: MediaQuery.of(context).size.width >= mainSize &&
+                  Expanded(
+                    flex: MediaQuery.of(context).size.width > mainSize &&
                             MediaQuery.of(context).size.width <= 1200
-                        ? MediaQuery.of(context).size.width / 1.39
-                        : MediaQuery.of(context).size.width >= 1201 &&
-                                MediaQuery.of(context).size.width <= 1450
-                            ? MediaQuery.of(context).size.width / 1.22
-                            : MediaQuery.of(context).size.width / 1.20,
+                        ? 4
+                        : MediaQuery.of(context).size.width <= 768
+                            ? 3
+                            : 5,
                     child: Container(
-                        child: isLesson
-                            ? LessonSView()
-                            : isPlatform
-                                ? PlatformWeb()
-                                : isNav
-                                    ? Nav()
-                                    : isTutoring
-                                        ? Tut()
-                                        : LessonSView()),
+                      height: MediaQuery.of(context).size.height,
+                      child: Container(
+                          child: isLesson
+                              ? LessonSView()
+                              : isPlatform
+                                  ? PlatformWeb()
+                                  : isNav
+                                      ? Nav()
+                                      : isTutoring
+                                          ? Tut()
+                                          : LessonSView()),
+                    ),
                   )
                 ],
               ));
@@ -175,7 +171,7 @@ Widget demoButton(
   //For Hovering
   return Container(
     margin: EdgeInsets.only(top: 10),
-    height: 40.h,
+    height: 35,
     width: MediaQuery.of(context).size.width >= size &&
             MediaQuery.of(context).size.width <= 1200
         ? 110
@@ -189,7 +185,7 @@ Widget demoButton(
 
     //For Selecting
     child: Container(
-      height: 40.h,
+      height: 35,
       width: MediaQuery.of(context).size.width >= size &&
               MediaQuery.of(context).size.width <= 1200
           ? 110
@@ -203,9 +199,9 @@ Widget demoButton(
       ),
       child: Row(
         children: [
-          SizedBox(width: 3.w),
+          SizedBox(width: 15),
           Icon(Icons.window_sharp, color: Colors.white, size: 15),
-          SizedBox(width: 5.w),
+          SizedBox(width: 6),
           Text(text, style: TextStyle(color: Colors.white)),
         ],
       ),
