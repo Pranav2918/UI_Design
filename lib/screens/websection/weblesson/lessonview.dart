@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_5/screens/websection/weblesson/subjectcard.dart';
+import 'package:task_5/screens/websection/weblesson/webwidgets.dart';
 
 // ignore: must_be_immutable
 class LessonSView extends StatelessWidget {
@@ -130,82 +131,4 @@ class LessonSView extends StatelessWidget {
               ],
             )));
   }
-
-  Widget searchBar(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 25.w, right: 25.w),
-      height: 45.h,
-      width: 700.w,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(28.r),
-        color: Colors.white,
-      ),
-      child: TextFormField(
-        decoration: InputDecoration(
-            suffixIcon: Container(
-              height: 45.h,
-              width: 45.h,
-              decoration: BoxDecoration(
-                  color: Colors.blue[700], shape: BoxShape.circle),
-              child: Center(
-                child: Icon(
-                  Icons.search,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            contentPadding: EdgeInsets.only(left: 10.w, bottom: 10.h),
-            border: InputBorder.none,
-            hintText: 'Search over million lessons'),
-      ),
-    );
-  }
-
-  Widget subjects(Icon icon, String name, context, double size) {
-    return GestureDetector(
-      child: Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: MediaQuery.of(context).size.width >= size &&
-                    MediaQuery.of(context).size.width <= 1200
-                ? 10
-                : MediaQuery.of(context).size.width >= 1201 &&
-                        MediaQuery.of(context).size.width <= 1450
-                    ? 35
-                    : 45),
-        child: Row(
-          children: <Widget>[
-            icon,
-            SizedBox(width: 5.w),
-            Text(name,
-                style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: MediaQuery.of(context).size.width > size &&
-                            MediaQuery.of(context).size.width <= 1200
-                        ? 12
-                        : 18))
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-Widget headingTitle(String title, String subtitle, context, double size) {
-  return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-    Text(title,
-        style: TextStyle(
-            color: Colors.blueGrey[900],
-            fontSize: MediaQuery.of(context).size.width > size &&
-                    MediaQuery.of(context).size.width <= 1200
-                ? 30
-                : 40)),
-    SizedBox(height: 10.h),
-    Text(subtitle,
-        style: TextStyle(
-            color: Colors.grey,
-            fontSize: MediaQuery.of(context).size.width > size &&
-                    MediaQuery.of(context).size.width <= 1200
-                ? 18
-                : 28))
-  ]);
 }

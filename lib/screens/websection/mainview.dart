@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task_5/screens/websection/weblesson/lessonview.dart';
 import 'package:task_5/screens/websection/weblesson/tempClasses.dart';
+import 'package:task_5/screens/websection/weblesson/webwidgets.dart';
 
 class MainScreenView extends StatefulWidget {
   @override
@@ -164,78 +165,4 @@ class _MainScreenViewState extends State<MainScreenView> {
               ));
             }));
   }
-}
-
-Widget demoButton(
-    bool val, String text, BuildContext context, double size, bool selected) {
-  //For Hovering
-  return Container(
-    margin: EdgeInsets.only(top: 10),
-    height: 35,
-    width: MediaQuery.of(context).size.width >= size &&
-            MediaQuery.of(context).size.width <= 1200
-        ? 110
-        : MediaQuery.of(context).size.width >= 1201 &&
-                MediaQuery.of(context).size.width <= 1450
-            ? 110
-            : 110,
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(28),
-        color: val ? Colors.indigoAccent : Colors.transparent),
-
-    //For Selecting
-    child: Container(
-      height: 35,
-      width: MediaQuery.of(context).size.width >= size &&
-              MediaQuery.of(context).size.width <= 1200
-          ? 110
-          : MediaQuery.of(context).size.width >= 1201 &&
-                  MediaQuery.of(context).size.width <= 1450
-              ? 110
-              : 110,
-      decoration: BoxDecoration(
-        color: selected ? Colors.indigoAccent : Colors.transparent,
-        borderRadius: BorderRadius.circular(28),
-      ),
-      child: Row(
-        children: [
-          SizedBox(width: 15),
-          Icon(Icons.window_sharp, color: Colors.white, size: 15),
-          SizedBox(width: 6),
-          Text(text, style: TextStyle(color: Colors.white)),
-        ],
-      ),
-    ),
-  );
-}
-
-Widget logoHeader(BuildContext context, double size) {
-  return Container(
-    margin: EdgeInsets.symmetric(vertical: 30.h),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(Icons.book,
-            color: Colors.white,
-            size: MediaQuery.of(context).size.width >= size &&
-                    MediaQuery.of(context).size.width <= 1200
-                ? 15
-                : MediaQuery.of(context).size.width >= 1201 &&
-                        MediaQuery.of(context).size.width <= 1450
-                    ? 25
-                    : 25),
-        SizedBox(width: 5.w),
-        Text('Learniverse',
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: MediaQuery.of(context).size.width >= size &&
-                        MediaQuery.of(context).size.width <= 1200
-                    ? 18
-                    : MediaQuery.of(context).size.width >= 1201 &&
-                            MediaQuery.of(context).size.width <= 1450
-                        ? 20
-                        : 25)),
-      ],
-    ),
-  );
 }
