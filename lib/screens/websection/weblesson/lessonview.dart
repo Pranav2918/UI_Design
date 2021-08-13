@@ -29,6 +29,7 @@ class LessonSView extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 70.h),
                 headingTitle(
                     'Lessons', 'Find your learning material', context, 18.sp),
                 SizedBox(height: 50.h),

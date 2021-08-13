@@ -24,6 +24,8 @@ class _MainScreenViewState extends State<MainScreenView> {
   bool isPlatform = false;
   bool isNav = false;
   bool isTutoring = false;
+
+  bool isClosed = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,113 +35,173 @@ class _MainScreenViewState extends State<MainScreenView> {
               return Container(
                   child: Row(
                 children: [
-                  Expanded(
-                    child: Container(
-                      height: MediaQuery.of(context).size.height,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(imgUrl), fit: BoxFit.cover)),
-                      child: Container(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              children: [
-                                logoHeader(context, mainSize),
-                                InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        isLesson = true;
-                                        isNav = false;
-                                        isTutoring = false;
-                                        isPlatform = false;
-                                      });
-                                    },
-                                    onHover: (val) {
-                                      setState(() {
-                                        isLessonHovered = val;
-                                      });
-                                    },
-                                    child: demoButton(isLessonHovered, 'Lesson',
-                                        context, mainSize, isLesson)),
-                                InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        isPlatform = true;
-                                        isNav = false;
-                                        isLesson = false;
-                                        isTutoring = false;
-                                      });
-                                    },
-                                    onHover: (val) {
-                                      setState(() {
-                                        isPlatformHovered = val;
-                                      });
-                                    },
-                                    child: demoButton(
-                                        isPlatformHovered,
-                                        'Platform',
-                                        context,
-                                        mainSize,
-                                        isPlatform)),
-                                InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        isNav = true;
-                                        isPlatform = false;
-                                        isTutoring = false;
-                                        isLesson = false;
-                                      });
-                                    },
-                                    onHover: (val) {
-                                      setState(() {
-                                        isNavHovered = val;
-                                      });
-                                    },
-                                    child: demoButton(isNavHovered, 'Nav',
-                                        context, mainSize, isNav)),
-                                InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        isTutoring = true;
-                                        isNav = false;
-                                        isPlatform = false;
-                                        isLesson = false;
-                                      });
-                                    },
-                                    onHover: (val) {
-                                      setState(() {
-                                        isTutoringHovered = val;
-                                      });
-                                    },
-                                    child: demoButton(
-                                        isTutoringHovered,
-                                        'Tutoring',
-                                        context,
-                                        mainSize,
-                                        isTutoring)),
-                              ],
-                            ),
-                            Align(
-                              alignment: Alignment.bottomLeft,
+                  isClosed
+                      ? Container(
+                          child: Align(
+                            alignment: Alignment.bottomLeft,
+                            child: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  isClosed = !isClosed;
+                                });
+                              },
                               child: Container(
-                                  margin: EdgeInsets.only(bottom: 25.h),
-                                  height: 45.h,
-                                  width: 45.w,
+                                  margin: EdgeInsets.only(bottom: 25, left: 25),
+                                  height: 45,
+                                  width: 45,
                                   child: Center(
-                                    child: Icon(Icons.question_answer_outlined,
-                                        color: Colors.white, size: 18.sp),
+                                    child: Icon(
+                                      isClosed
+                                          ? Icons.arrow_forward_ios
+                                          : Icons.close,
+                                      color: Colors.white,
+                                      size: 15,
+                                    ),
                                   ),
                                   decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                     border: Border.all(color: Colors.grey),
                                   )),
-                            )
-                          ],
+                            ),
+                          ),
+                          width: 100,
+                          color: Colors.black,
+                          height: MediaQuery.of(context).size.height,
+                        )
+                      : Expanded(
+                          child: Container(
+                            height: MediaQuery.of(context).size.height,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(imgUrl),
+                                    fit: BoxFit.cover)),
+                            child: Container(
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Column(
+                                    children: [
+                                      logoHeader(context, mainSize),
+                                      InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              isLesson = true;
+                                              isNav = false;
+                                              isTutoring = false;
+                                              isPlatform = false;
+                                            });
+                                          },
+                                          onHover: (val) {
+                                            setState(() {
+                                              isLessonHovered = val;
+                                            });
+                                          },
+                                          child: demoButton(
+                                            isLessonHovered,
+                                            'Lesson',
+                                            context,
+                                            mainSize,
+                                            isLesson,
+                                          )),
+                                      InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              isPlatform = true;
+                                              isNav = false;
+                                              isLesson = false;
+                                              isTutoring = false;
+                                            });
+                                          },
+                                          onHover: (val) {
+                                            setState(() {
+                                              isPlatformHovered = val;
+                                            });
+                                          },
+                                          child: demoButton(
+                                            isPlatformHovered,
+                                            'Platform',
+                                            context,
+                                            mainSize,
+                                            isPlatform,
+                                          )),
+                                      InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              isNav = true;
+                                              isPlatform = false;
+                                              isTutoring = false;
+                                              isLesson = false;
+                                            });
+                                          },
+                                          onHover: (val) {
+                                            setState(() {
+                                              isNavHovered = val;
+                                            });
+                                          },
+                                          child: demoButton(
+                                            isNavHovered,
+                                            'Nav',
+                                            context,
+                                            mainSize,
+                                            isNav,
+                                          )),
+                                      InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              isTutoring = true;
+                                              isNav = false;
+                                              isPlatform = false;
+                                              isLesson = false;
+                                            });
+                                          },
+                                          onHover: (val) {
+                                            setState(() {
+                                              isTutoringHovered = val;
+                                            });
+                                          },
+                                          child: demoButton(
+                                            isTutoringHovered,
+                                            'Tutoring',
+                                            context,
+                                            mainSize,
+                                            isTutoring,
+                                          )),
+                                    ],
+                                  ),
+                                  Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          isClosed = !isClosed;
+                                        });
+                                      },
+                                      child: Container(
+                                          margin: EdgeInsets.only(
+                                              bottom: 25, right: 25),
+                                          height: 45,
+                                          width: 45,
+                                          child: Center(
+                                            child: Icon(
+                                                isClosed
+                                                    ? Icons.arrow_forward_ios
+                                                    : Icons.close,
+                                                color: Colors.white,
+                                                size: 15),
+                                          ),
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border:
+                                                Border.all(color: Colors.grey),
+                                          )),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                  ),
                   Expanded(
                     flex: MediaQuery.of(context).size.width > mainSize &&
                             MediaQuery.of(context).size.width <= 1200

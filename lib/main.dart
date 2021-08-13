@@ -6,6 +6,7 @@ import 'package:task_5/screens/lesson/homepage.dart';
 import 'package:task_5/screens/tutoring/tutoring.dart';
 import 'package:task_5/screens/websection/mainview.dart';
 import 'package:task_5/screens/websection/weblesson/subjectdetails.dart';
+import 'package:task_5/screens/websection/weblesson/tempClasses.dart';
 
 import 'screens/platforms/platform.dart';
 
@@ -26,7 +27,10 @@ class MyApp extends StatelessWidget {
           '/': (BuildContext context) => MainPage(),
           '/mainpage': (BuildContext context) => MainScreenView(),
           '/lesson': (BuildContext context) => MainScreenView(),
-          '/mathematik': (BuildContext context) => SubjectDetailWeb()
+          '/mathematik': (BuildContext context) => SubjectDetailWeb(),
+          '/nav': (BuildContext context) => Nav(),
+          '/tutoring': (BuildContext context) => Tut(),
+          '/platform': (BuildContext context) => PlatformWeb(),
         },
       ),
     );

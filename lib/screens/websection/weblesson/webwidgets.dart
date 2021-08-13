@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task_5/screens/websection/weblesson/subjectdetails.dart';
 
 //Heading Title for Lesson Page
 Widget headingTitle(String title, String subtitle, context, double size) {
@@ -137,4 +138,55 @@ Widget logoHeader(BuildContext context, double size) {
       decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage('assets/images/sidebarlogo.png'))));
+}
+
+//Subject Detail
+
+Widget subjectDetail(context, double size) {
+  return Expanded(
+      flex: MediaQuery.of(context).size.width > size &&
+              MediaQuery.of(context).size.width <= 1200
+          ? 4
+          : MediaQuery.of(context).size.width <= 768
+              ? 3
+              : 5,
+      child: Scaffold(
+        appBar: AppBar(
+          elevation: 0.0,
+          backgroundColor: Colors.white,
+          leading: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(Icons.arrow_back, color: Colors.black)),
+          title: appbarField(),
+          centerTitle: true,
+          actions: [
+            Padding(
+              padding: EdgeInsets.all(8.0.w),
+              child: Container(
+                height: 30.h,
+                width: 30.w,
+                decoration: BoxDecoration(
+                    color: Colors.blue[700], shape: BoxShape.circle),
+                child: Center(
+                  child: Icon(Icons.person, color: Colors.white, size: 18.sp),
+                ),
+              ),
+            ),
+          ],
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.only(left: 5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('199 Results', style: TextStyle(color: Colors.grey)),
+                detailTile()
+              ],
+            ),
+          ),
+        ),
+      ));
 }
