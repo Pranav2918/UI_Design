@@ -25,9 +25,7 @@ class _SubjectDetailWebState extends State<SubjectDetailWeb> {
   bool isTutoring = false;
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-        designSize: Size(768, 702),
-        builder: () => Container(
+    return Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.height,
               child: Row(
@@ -159,7 +157,7 @@ class _SubjectDetailWebState extends State<SubjectDetailWeb> {
                   subjectDetail(context, mainSize)
                 ],
               ),
-            ));
+            );
   }
 }
 

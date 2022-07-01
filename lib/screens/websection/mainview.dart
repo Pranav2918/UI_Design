@@ -29,10 +29,7 @@ class _MainScreenViewState extends State<MainScreenView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ScreenUtilInit(
-            designSize: Size(768, 1024),
-            builder: () {
-              return Container(
+        body: Container(
                   child: Row(
                 children: [
                   isClosed
@@ -224,7 +221,7 @@ class _MainScreenViewState extends State<MainScreenView> {
                     ),
                   )
                 ],
-              ));
-            }));
+              ))
+           );
   }
 }
