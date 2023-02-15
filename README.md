@@ -1,6 +1,7 @@
-# UI_Design
+# Tutoring Application
 
-- A new Flutter project.
+- Learning application with amazing UI.
+- Used custom widgets, libraries and clean code.
 - Responsive in all mobile devices, tab and wide screens.
 
 ### Screenshots
@@ -12,5 +13,4 @@
 ![tab](https://user-images.githubusercontent.com/69794884/129354848-cdf290db-3ca7-43ea-a46a-b9f512d8d1d2.png)
 
 
-
-## FlutterDev
+#### Keep Fluttering :blue_heart:
